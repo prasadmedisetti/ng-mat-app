@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ng-mat-app-cfbd8": {
+      "hosting": {
+        "ng-mat-app": [
+          "ng-mat-app-cfbd8"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ng-mat-app-cfbd8"
+  }
+}

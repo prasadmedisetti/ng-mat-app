@@ -1,0 +1,15 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6rem;
+
+  mat-form-field {
+    width: 320px;
+  }
+
+  mat-checkbox {
+    width: 310px;
+  }
+}

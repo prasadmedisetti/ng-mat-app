@@ -1,0 +1,22 @@
+<mat-nav-list>
+  <mat-list-item role="listitem" *ngIf="isAuth$ | async">
+    <mat-icon matListItemIcon>alternate_email</mat-icon>
+    <span>{{ userEmail$ | async }}</span>
+  </mat-list-item>
+  <a mat-list-item routerLink=" /signup" (click)="onClose()" *ngIf="!(isAuth$ | async)">
+    <mat-icon matListItemIcon>person_add</mat-icon>
+    <span matListItemTitle>Sign Up</span>
+  </a>
+  <a mat-list-item routerLink="/signin" (click)="onClose()" *ngIf="!(isAuth$ | async)">
+    <mat-icon matListItemIcon>login</mat-icon>
+    <span matListItemTitle>Sign In</span>
+  </a>
+  <a mat-list-item routerLink="/training" (click)="onClose()" *ngIf="isAuth$ | async">
+    <mat-icon matListItemIcon>fitness_center</mat-icon>
+    <span matListItemTitle>Training</span>
+  </a>
+  <a mat-list-item (click)="onLogout()" *ngIf="isAuth$ | async">
+    <mat-icon matListItemIcon>logout</mat-icon>
+    <span matListItemTitle>Logout</span>
+  </a>
+</mat-nav-list>

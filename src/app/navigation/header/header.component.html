@@ -1,0 +1,43 @@
+<mat-toolbar color="primary">
+  <div fxFlex fxLayout fxLayout.xs="row-reverse" fxLayoutAlign.xs="space-between center"
+    fxLayoutAlign.sm="space-between center">
+    <button mat-icon-button aria-label="Toggle Sidenav" (click)="onToggleSideNav()" fxHide.gt-xs>
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a routerLink="/">Ng Fitness</a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.lt-sm>
+    <ul fxLayout fxLayoutGap="1rem" class="nav-items">
+      <li *ngIf="!(isAuth$ | async)">
+        <a routerLink="/signup" fxLayout fxLayoutAlign="center center" fxLayoutGap="0.5rem">
+          <mat-icon>person_add</mat-icon>
+          <span>Sign Up</span>
+        </a>
+      </li>
+      <li *ngIf="!(isAuth$ | async)">
+        <a routerLink="/signin" fxLayout fxLayoutAlign="center center" fxLayoutGap="0.5rem">
+          <mat-icon>login</mat-icon>
+          <span>Sign In</span>
+        </a>
+      </li>
+      <li *ngIf="isAuth$ | async">
+        <a routerLink="/training" fxLayout fxLayoutAlign="center center" fxLayoutGap="0.5rem">
+          <mat-icon>fitness_center</mat-icon>
+          <span>Training</span>
+        </a>
+      </li>
+      <li *ngIf="isAuth$ | async">
+        <a [matMenuTriggerFor]="menu" fxLayout fxLayoutAlign="center center" fxLayoutGap="0.5rem" style="cursor: pointer">
+          <mat-icon matListItemIcon>alternate_email</mat-icon>
+          <span>{{ userEmail$ | async }}</span>
+        </a>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item (click)="onLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </a>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>
